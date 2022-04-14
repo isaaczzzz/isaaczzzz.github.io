@@ -62,61 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-SQL99语法新特性" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/04/14/SQL99%E8%AF%AD%E6%B3%95%E6%96%B0%E7%89%B9%E6%80%A7/" class="article-date">
-  <time datetime="2022-04-14T08:59:01.000Z" itemprop="datePublished">2022-04-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/14/SQL99%E8%AF%AD%E6%B3%95%E6%96%B0%E7%89%B9%E6%80%A7/">SQL99语法新特性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h3><pre><code class="mysql">SELECT employee_id, department_name
-FROM employee e JOIN department d
-ON e.department_id = d.department_id
-AND e.manager_id = d.manager_id;
-</code></pre>
-<p>等同于</p>
-<pre><code class="mysql">SELECT employee_id, department_name
-FROM employee e NATURAL JOIN department d;
-</code></pre>
-<p>自动查询两张表中<strong>所有相同的字段</strong>，然后进行<strong>等值连接</strong></p>
-<h3 id="USING"><a href="#USING" class="headerlink" title="USING"></a>USING</h3><pre><code class="mysql">SELECT employee_id, department_name
-FROM employee e JOIN department d
-ON e.department_id = d.department_id;
-</code></pre>
-<p>等同于</p>
-<pre><code class="mysql">SELECT employee_id, department_name
-FROM employee e JOIN department d
-USING (department_id);
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/14/SQL99%E8%AF%AD%E6%B3%95%E6%96%B0%E7%89%B9%E6%80%A7/" data-id="cl1yshelz00007ey13ngmguxg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/04/14/hello-world/" class="article-date">
@@ -156,7 +101,7 @@ USING (department_id);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/14/hello-world/" data-id="cl1yshem400017ey120wm6w7b" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/14/hello-world/" data-id="cl1ysrlpt00004iy1fpzr72jt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,10 +140,6 @@ USING (department_id);
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2022/04/14/SQL99%E8%AF%AD%E6%B3%95%E6%96%B0%E7%89%B9%E6%80%A7/">SQL99语法新特性</a>
-          </li>
         
           <li>
             <a href="/2022/04/14/hello-world/">Hello World</a>
