@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>SQL99语法新特性</title>
+    <url>/2022/04/14/SQL99%E6%96%B0%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h3 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e JOIN department d</span><br><span class="line">ON e.department_id = d.department_id</span><br><span class="line">AND e.manager_id = d.manager_id;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>等同于</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e NATURAL JOIN department d;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>自动查询两张表中<strong>所有相同的字段</strong>，然后进行<strong>等值连接</strong></p>
+<h3 id="USING"><a href="#USING" class="headerlink" title="USING"></a>USING</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e JOIN department d</span><br><span class="line">ON e.department_id = d.department_id;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>等同于</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e JOIN department d</span><br><span class="line">USING (department_id);</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      <categories>
+        <category>后端</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+</search>
