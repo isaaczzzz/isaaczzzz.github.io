@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ubuntu20.04卸载Mysql8.0</title>
-    <url>/2022/09/23/20-04%E5%8D%B8%E8%BD%BDMysql8-0/</url>
-    <content><![CDATA[<h2 id="1-卸载"><a href="#1-卸载" class="headerlink" title="1. 卸载"></a>1. 卸载</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get remove mysql-common</span><br><span class="line">sudo apt-get autoremove --purge mysql-server-8.0</span><br></pre></td></tr></tbody></table></figure>
-
-<p>使用<code>dpkg --list | grep mysql</code>查看是否有剩余，使用<code>apt-get autoremove --purge</code>卸载</p>
-<h2 id="2-清除残留数据"><a href="#2-清除残留数据" class="headerlink" title="2. 清除残留数据"></a>2. 清除残留数据</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P </span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<blockquote>
-<p>引用来源：</p>
-<p><a href="https://blog.csdn.net/leacock1991/article/details/110406708">https://blog.csdn.net/leacock1991/article/details/110406708</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SQL99语法新特性</title>
     <url>/2022/04/14/SQL99%E6%96%B0%E7%89%B9%E6%80%A7/</url>
     <content><![CDATA[<h3 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e JOIN department d</span><br><span class="line">ON e.department_id = d.department_id</span><br><span class="line">AND e.manager_id = d.manager_id;</span><br></pre></td></tr></tbody></table></figure>
@@ -41,8 +18,31 @@
         <category>MySQL</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>后端</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu20.04卸载Mysql8.0</title>
+    <url>/2022/09/23/Ubuntu20-04%E5%8D%B8%E8%BD%BDMysql8-0/</url>
+    <content><![CDATA[<h2 id="1-卸载"><a href="#1-卸载" class="headerlink" title="1. 卸载"></a>1. 卸载</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get remove mysql-common</span><br><span class="line">sudo apt-get autoremove --purge mysql-server-8.0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用<code>dpkg --list | grep mysql</code>查看是否有剩余，使用<code>apt-get autoremove --purge</code>卸载</p>
+<h2 id="2-清除残留数据"><a href="#2-清除残留数据" class="headerlink" title="2. 清除残留数据"></a>2. 清除残留数据</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P </span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<p>引用来源：</p>
+<p><a href="https://blog.csdn.net/leacock1991/article/details/110406708">https://blog.csdn.net/leacock1991/article/details/110406708</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
