@@ -23,29 +23,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu20.04卸载Mysql8.0</title>
-    <url>/2022/09/23/Ubuntu20-04%E5%8D%B8%E8%BD%BDMysql8-0/</url>
-    <content><![CDATA[<h2 id="1-卸载"><a href="#1-卸载" class="headerlink" title="1. 卸载"></a>1. 卸载</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get remove mysql-common</span><br><span class="line">sudo apt-get autoremove --purge mysql-server-8.0</span><br></pre></td></tr></tbody></table></figure>
-
-<p>使用<code>dpkg --list | grep mysql</code>查看是否有剩余，使用<code>apt-get autoremove --purge</code>卸载</p>
-<h2 id="2-清除残留数据"><a href="#2-清除残留数据" class="headerlink" title="2. 清除残留数据"></a>2. 清除残留数据</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P </span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<blockquote>
-<p>引用来源：</p>
-<p><a href="https://blog.csdn.net/leacock1991/article/details/110406708">https://blog.csdn.net/leacock1991/article/details/110406708</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring部分核心概念</title>
     <url>/2022/10/08/Spring%E9%83%A8%E5%88%86%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<h1 id="Spring部分核心概念"><a href="#Spring部分核心概念" class="headerlink" title="Spring部分核心概念"></a>Spring部分核心概念</h1><h2 id="IoC-Inversion-of-Control-控制反转"><a href="#IoC-Inversion-of-Control-控制反转" class="headerlink" title="IoC (Inversion of Control) 控制反转"></a>IoC (Inversion of Control) 控制反转</h2><ul>
@@ -70,6 +47,107 @@
       <tags>
         <tag>后端</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu20.04卸载Mysql8.0</title>
+    <url>/2022/09/23/Ubuntu20-04%E5%8D%B8%E8%BD%BDMysql8-0/</url>
+    <content><![CDATA[<h2 id="1-卸载"><a href="#1-卸载" class="headerlink" title="1. 卸载"></a>1. 卸载</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">sudo apt-get remove mysql-common</span><br><span class="line">sudo apt-get autoremove --purge mysql-server-8.0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用<code>dpkg --list | grep mysql</code>查看是否有剩余，使用<code>apt-get autoremove --purge</code>卸载</p>
+<h2 id="2-清除残留数据"><a href="#2-清除残留数据" class="headerlink" title="2. 清除残留数据"></a>2. 清除残留数据</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P </span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<p>引用来源：</p>
+<p><a href="https://blog.csdn.net/leacock1991/article/details/110406708">https://blog.csdn.net/leacock1991/article/details/110406708</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu部署Tomcat8与基础配置</title>
+    <url>/2022/10/08/Ubuntu%E9%83%A8%E7%BD%B2Tomcat8%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Ubuntu部署Tomcat8与基础配置"><a href="#Ubuntu部署Tomcat8与基础配置" class="headerlink" title="Ubuntu部署Tomcat8与基础配置"></a>Ubuntu部署Tomcat8与基础配置</h1><h2 id="0-Java环境"><a href="#0-Java环境" class="headerlink" title="0. Java环境"></a>0. Java环境</h2><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:~$ java -version</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若无Java环境，则下载安装。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:~$ sudo apt install openjdk-8-jre-headless</span><br><span class="line"></span><br><span class="line">isaaczzzz@AzureWeb:~$ java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_342"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_342-8u342-b07-0ubuntu1~20.04-b07)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.342-b07, mixed mode)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="1-Tomcat安装"><a href="#1-Tomcat安装" class="headerlink" title="1. Tomcat安装"></a>1. Tomcat安装</h2><ul>
+<li>在Tomcat官网<a href="https://tomcat.apache.org/%E8%8E%B7%E5%8F%96%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%EF%BC%88**Core**%EF%BC%89%E3%80%82">https://tomcat.apache.org/获取下载链接（**Core**）。</a></li>
+</ul>
+<p><img src="/../images/tomcat/install_1.png"></p>
+<ul>
+<li>使用<code>wget</code>下载</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:~/download$ sudo wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.82/bin/apache-tomcat-8.5.82.tar.gz</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>解压移动至<code>/opt</code>目录</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:~/download$ sudo tar -zxvf apache-tomcat-8.5.82.tar.gz</span><br><span class="line">isaaczzzz@AzureWeb:~/download$ sudo <span class="built_in">mv</span> apache-tomcat-8.5.82</span><br><span class="line">/opt</span><br><span class="line">isaaczzzz@AzureWeb:~$ <span class="built_in">cd</span> /opt/apache-tomcat-8.5.82/</span><br><span class="line">isaaczzzz@AzureWeb:/opt/apache-tomcat-8.5.82$ <span class="built_in">ls</span></span><br><span class="line">BUILDING.txt     LICENSE  README.md      RUNNING.txt  conf  logs  webapps</span><br><span class="line">CONTRIBUTING.md  NOTICE   RELEASE-NOTES  bin          lib   temp  work</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>启动与停止运行</li>
+</ul>
+<p>启动：<code>./bin/startup.sh</code><br>停止：<code>./bin/startup.sh</code></p>
+<ul>
+<li>检查端口是否处于监听状态</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:/opt/apache-tomcat-8.5.82$ netstat -anput |  grep 8080</span><br><span class="line">(Not all processes could be identified, non-owned process info</span><br><span class="line"> will not be shown, you would have to be root to see it all.)</span><br><span class="line">tcp6       0      0 :::8080                 :::*                    LISTEN      19378/java</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>关闭防火墙</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">isaaczzzz@AzureWeb:/opt/apache-tomcat-8.5.82$ sudo ufw <span class="built_in">disable</span> </span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>浏览器访问 <code>域名:8080</code> 显示Tomcat页面即成功。</li>
+</ul>
+<h2 id="2-基础配置"><a href="#2-基础配置" class="headerlink" title="2. 基础配置"></a>2. 基础配置</h2><p><strong>配置文件位置</strong>:</p>
+<p><code>apache-tomcat-8.5.82/conf/server.xml</code></p>
+<ul>
+<li>更改端口号</li>
+</ul>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8081"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span>   #<span class="attr">将之前8080端口改成8081端口</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>更改网站目录</li>
+</ul>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"/opt/www"</span>  #<span class="attr">将网站根目录改到</span>/<span class="attr">opt</span>/<span class="attr">www</span></span></span><br><span class="line"><span class="tag">            <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>设置域名</li>
+</ul>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span> <span class="attr">name</span>=<span class="string">"Catalina"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--defaultHost的值改为目标域名www.xxxxx.yyy--&gt;</span>   </span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span> <span class="attr">name</span>=<span class="string">"localhost"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">xmlNamespaceAware</span>=<span class="string">"false"</span> <span class="attr">xmlValidation</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--name的值改为目标域名--&gt;</span>  </span><br></pre></td></tr></tbody></table></figure>
+
+<p>保存并重启Tomcat，访问域名。</p>
+<h2 id="3-关于修改端口为80"><a href="#3-关于修改端口为80" class="headerlink" title="3. 关于修改端口为80"></a>3. 关于修改端口为80</h2><p>直接在<code>server.xml</code>的<code>Connector</code>中将端口修改为<code>80</code>时，因为Ubuntu禁止非<code>root</code>用户访问<code>1024</code>以下接口，端口将会无法访问。</p>
+<p><strong>解决方法：</strong></p>
+<ol>
+<li><p>直接用<code>sudo</code>命令运行Tomcat服务器</p>
+<p><em>网上有人说这样能成功，但我仍无法访问</em></p>
+</li>
+<li><p>将server.xml中的端口改为8080，然后</p>
+<p>```bash<br>iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-port 8080</p>
+</li>
+</ol>
+<p>​	成功。</p>
+]]></content>
+      <categories>
+        <category>后端</category>
+        <category>Tomcat</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
 </search>
