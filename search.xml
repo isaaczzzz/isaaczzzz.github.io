@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Spring部分核心概念</title>
-    <url>/2022/10/08/Spring%E9%83%A8%E5%88%86%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>后端</category>
-        <category>Spring</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SQL99语法新特性</title>
     <url>/2022/04/14/SQL99%E6%96%B0%E7%89%B9%E6%80%A7/</url>
     <content><![CDATA[<h3 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h3><figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">SELECT employee_id, department_name</span><br><span class="line">FROM employee e JOIN department d</span><br><span class="line">ON e.department_id = d.department_id</span><br><span class="line">AND e.manager_id = d.manager_id;</span><br></pre></td></tr></tbody></table></figure>
@@ -56,6 +43,33 @@
       <tags>
         <tag>MySQL</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring部分核心概念</title>
+    <url>/2022/10/08/Spring%E9%83%A8%E5%88%86%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<h1 id="Spring部分核心概念"><a href="#Spring部分核心概念" class="headerlink" title="Spring部分核心概念"></a>Spring部分核心概念</h1><h2 id="IoC-Inversion-of-Control-控制反转"><a href="#IoC-Inversion-of-Control-控制反转" class="headerlink" title="IoC (Inversion of Control) 控制反转"></a>IoC (Inversion of Control) 控制反转</h2><ul>
+<li><p>使用对象时，由主动<code>new</code>产生对象转换为由<strong>外部</strong>提供对象，将对象创建控	制权由程序内转移到<strong>外部</strong>。</p>
+</li>
+<li><p>Spring提供了<strong>IoC容器</strong>，来充当<strong>外部</strong>。</p>
+</li>
+<li><p>IoC容器负责对象创建、初始化等，这些对象在IoC容器中被称为<strong>Bean</strong>。</p>
+</li>
+</ul>
+<h2 id="DI-Dependency-Injection-依赖注入"><a href="#DI-Dependency-Injection-依赖注入" class="headerlink" title="DI (Dependency Injection) 依赖注入"></a>DI (Dependency Injection) 依赖注入</h2><ul>
+<li>在容器中建立Bean与Bean之间的依赖关系的过程。</li>
+</ul>
+<blockquote>
+<p>DI和IoC的共同目的：<strong>充分解耦</strong></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>后端</category>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>后端</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
 </search>
